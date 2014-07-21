@@ -37,7 +37,8 @@ define([
             })
             .then(function(packages) {
                 return dialogs.list(packages, {
-                    template: packageTemplate
+                    template: packageTemplate,
+                    placeholder: "Install a package"
                 });
             });
         }
@@ -49,7 +50,8 @@ define([
         title: "Package Control: Remove Package",
         run: function() {
             return dialogs.list(packages, {
-                template: packageTemplate
+                template: packageTemplate,
+                placeholder: "Remove a package"
             })
             .then(function(pkg) {
 
