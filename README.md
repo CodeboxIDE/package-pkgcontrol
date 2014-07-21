@@ -1,0 +1,4 @@
+package-pkgcontrol
+==================
+
+Package Control
