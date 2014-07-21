@@ -1,0 +1,12 @@
+{
+    "name": "pkgcontrol",
+    "version": "0.0.0",
+    "description": "Package Control",
+    "main": "src/index",
+    "engines": {
+        "codebox": ">=1.0.0"
+    },
+    "packageDependencies": {
+        "settings": "CodeboxIDE/package-settings"
+    }
+}
