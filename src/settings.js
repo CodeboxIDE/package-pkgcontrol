@@ -6,7 +6,7 @@ define(function() {
             "properties": {
                 "repository": {
                     "type": "string",
-                    "default": "https://github.com/CodeboxIDE/packages"
+                    "default": "CodeboxIDE/packages"
                 }
             }
         }
