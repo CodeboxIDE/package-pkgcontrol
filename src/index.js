@@ -8,6 +8,7 @@ define([
     var commands = codebox.require("core/commands");
     var dialogs = codebox.require("utils/dialogs");
     var packages = codebox.require("core/packages");
+    var rpc = codebox.require("core/rpc");
     var hash = codebox.require("utils/hash");
 
     // Install a package from repository
@@ -40,6 +41,14 @@ define([
                     template: packageTemplate,
                     placeholder: "Install a package"
                 });
+            })
+            .then(function(pkg) {
+                return rpc.execute("packages/install", {
+                    url: pkg.get("repository")
+                });
+            })
+            .then(function() {
+                return dialogs.alert("This package will be fully operational once you reopen Codebox.")
             });
         }
     });
