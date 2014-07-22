@@ -43,13 +43,27 @@ define([
     var installPackage = function(url) {
         var p = rpc.execute("packages/install", {
             'url': url
-        })
-        .then(function() {
-            return dialogs.alert("This package will be fully operational once you reopen Codebox.")
         });
 
         return codebox.statusbar.loading(p, {
             prefix: "Installing package"
+        })
+        .then(function() {
+            return dialogs.alert("This package will be fully operational once you reopen Codebox.")
+        });
+    };
+
+    // Uninstall a package
+    var uninstallPackage = function(name) {
+        var p = rpc.execute("packages/uninstall", {
+            'name': name
+        });
+
+        return codebox.statusbar.loading(p, {
+            prefix: "Removing package"
+        })
+        .then(function() {
+            return dialogs.alert("This package will be fully removed once you restart Codebox.")
         });
     };
 
@@ -65,8 +79,9 @@ define([
                     placeholder: "Install a package"
                 });
             })
-            .get("repository")
-            .then(installPackage);
+            .post("get", ["repository"])
+            .then(installPackage)
+            .fail(dialogs.error);
         }
     });
 
@@ -79,9 +94,9 @@ define([
                 template: packageTemplate,
                 placeholder: "Remove a package"
             })
-            .then(function(pkg) {
-
-            });
+            .post("get", ["name"])
+            .then(uninstallPackage)
+            .fail(dialogs.error);
         }
     });
 });
