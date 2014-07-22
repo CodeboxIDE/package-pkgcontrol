@@ -67,6 +67,17 @@ define([
         });
     };
 
+    // List packages
+    commands.register({
+        id: "package.list.all",
+        title: "Package Control: List Packages",
+        run: function() {
+            return dialogs.list(packages, {
+                template: packageTemplate
+            });
+        }
+    });
+
     // Install a package from repository
     commands.register({
         id: "package.install",
