@@ -50,7 +50,8 @@ define([
         })
         .then(function() {
             return dialogs.alert("This package will be fully operational once you reopen Codebox.")
-        });
+        })
+        .fail(dialogs.error);
     };
 
     // Uninstall a package
@@ -64,7 +65,8 @@ define([
         })
         .then(function() {
             return dialogs.alert("This package will be fully removed once you restart Codebox.")
-        });
+        })
+        .fail(dialogs.error);
     };
 
     // List packages
@@ -91,8 +93,7 @@ define([
                 });
             })
             .post("get", ["repository"])
-            .then(installPackage)
-            .fail(dialogs.error);
+            .then(installPackage);
         }
     });
 
@@ -106,8 +107,7 @@ define([
                 placeholder: "Remove a package"
             })
             .post("get", ["name"])
-            .then(uninstallPackage)
-            .fail(dialogs.error);
+            .then(uninstallPackage);
         }
     });
 });
