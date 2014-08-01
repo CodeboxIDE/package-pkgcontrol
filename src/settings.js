@@ -5,6 +5,7 @@ define(function() {
             "type": "object",
             "properties": {
                 "repository": {
+                    "description": "Repository",
                     "type": "string",
                     "default": "CodeboxIDE/packages"
                 }
