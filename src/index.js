@@ -49,7 +49,7 @@ define([
             prefix: "Installing package"
         })
         .then(function() {
-            return dialogs.alert("This package will be fully operational once you reopen Codebox.")
+            return dialogs.alert("Package '"+url+"' is now installed.")
         })
         .fail(dialogs.error);
     };
