@@ -15,9 +15,9 @@ var hash = codebox.require("utils/hash");
 // Return packages from repository
 var listFromRepository = function() {
     var p = Q(axios.get("https://api.github.com/repos/"+settings.data.get("repository")+"/readme"))
-    .get("data")
-    .get("content")
-    .then(hash.atob)
+    .then(function(response) {
+        return hash.atob(response.data.content);
+    })
     .then(function(content) {
         return _.chain(content.split("\n"))
         .map(function(line) {
