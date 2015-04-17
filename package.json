@@ -4,7 +4,7 @@
     "description": "Package Control",
     "browser": "./src/index.js",
     "engines": {
-        "codebox": ">=1.0.0"
+        "codebox": ">=1.0.0-alpha"
     },
     "packageDependencies": {
         "statusbar": "CodeboxIDE/package-statusbar"
