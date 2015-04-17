@@ -5,7 +5,7 @@ var packageTemplate = require("./templates/package.html");
 
 var Q = codebox.require("q");
 var _ = codebox.require("hr.utils");
-var axios = require("axios");
+var axios = codebox.require("axios");
 var commands = codebox.require("core/commands");
 var dialogs = codebox.require("utils/dialogs");
 var packages = codebox.require("core/packages");
